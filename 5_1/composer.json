@@ -1,0 +1,13 @@
+{
+    "name": "morewillfollow/netology5_1",
+    "description": "Homework 5.1",
+    "require": {
+        "yandex/geo": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "MoreWillFollow",
+            "email": "anarnebiyev@gmail.com"
+        }
+    ]
+}
