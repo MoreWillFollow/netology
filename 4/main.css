@@ -1,0 +1,39 @@
+html {
+    font-family: Verdana, "PT Sans Caption", SansSerif;
+    font-size: 20px;
+}
+
+body {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+    font-family: Verdana, "PT Sans Caption", SansSerif;
+    font-size: 20px;
+}
+
+body * {
+    font-family: Verdana, "PT Sans Caption", SansSerif;
+    font-size: 20px;
+}
+
+.widget {
+    background: lightgrey;
+    border:1px solid floralwhite;
+    box-shadow: navajowhite 1px 1px 1px;
+    display: block;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+p {
+
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+
+}
+
+img {
+    display: inline-block;
+    vertical-align: middle;
+}

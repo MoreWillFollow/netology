@@ -1,0 +1,9 @@
+body {
+    font-family: Verdana, Helvetica, SansSerif;
+    margin-left: 25px;
+    margin-right: 20px;
+}
+
+h2, h3, h4 {
+    color: lightseagreen;
+}
