@@ -15,12 +15,9 @@
  */
 
 
-$ip = $_SERVER['REMOTE_ADDR'];
 
-$ip_finder = file_get_contents("http://freegeoip.net/json/$ip");
-$ip_content = json_decode($ip_finder, true);
-$city = $ip_content["city"];
-$country = "az";
+$city = "Moscow";
+$country = "RU";
 $key = "&appid=22eed902f65c43017cca7584aa8e5096";
 
 

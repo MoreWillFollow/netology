@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 mb_internal_encoding('UTF-8');
 mb_http_output('UTF-8');
 mb_http_input('UTF-8');
@@ -198,7 +198,7 @@ PHP;
                 $text_result = "Тест пройден!";
             }
 
-$imgSrc = "functions.php";
+$imgSrc = "image_gd.php";
             $functionsphp = file_get_contents($imgSrc);
             echo $functionsphp;
             var_dump($functionsphp);
@@ -207,6 +207,10 @@ $imgSrc = "functions.php";
             echo('<img src="'.$imgSrc.'"/ alt="result">');
 
         }
+        echo "<pre>";
+        var_dump($_POST);
+        echo "</pre>";
+
     }
     else {
         echo <<<PHP
