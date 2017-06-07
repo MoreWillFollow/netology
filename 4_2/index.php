@@ -5,7 +5,6 @@
  * Date: 07.06.17
  * Time: 19:14
  */
-ob_start();
 header('Content-Type: text/html; charset=UTF-8');
 error_reporting(E_ALL);
 
@@ -50,21 +49,46 @@ $add = $pdo->prepare("INSERT INTO tasks (description) VALUES (?)");
     </tr>
 
     <?
+    if (isset($_GET["action"]) and $_GET["action"] == "delete") {
+        $dlt->execute([
+            (string)($_GET["id"])
+        ]);
+/*        header('Location: http://clvrdgtl.com/l/PHP/4_2/index.php');*/
+
+    }
+
+    if (isset($_GET["action"]) and $_GET["action"] == "done") {
+        $done->execute([
+            (string)($_GET["id"])
+        ]);
+/*        header('Location: http://clvrdgtl.com/l/PHP/4_2/index.php');*/
+
+    }
+
+    if (isset($_GET["new_task"]) and !empty($_GET["new_task"])) {
+        $add->execute([
+            (string)($_GET["new_task"])
+        ]);
+/*        header('Location: http://clvrdgtl.com/l/PHP/4_2/index.php');*/
+
+    }
+
+
 
     foreach ($pdo->query($sql) as $row) {
 
-            if ($row['is_done'] == 0) {
-                $status = "В процессе";
-                $status_class = "current";
-            }
-            elseif ($row['is_done'] ==1) {
-                $status = "Выполнено";
-                $status_class = "done";
-            }
-            else {
-                echo "<h1>Some error...</h1>";
-                die();
-            }
+        if ($row['is_done'] == 0) {
+            $status = "В процессе";
+            $status_class = "current";
+        }
+        elseif ($row['is_done'] ==1) {
+            $status = "Выполнено";
+            $status_class = "done";
+        }
+        else {
+            echo "<h1>Some error...</h1>";
+            die();
+        }
 
         echo "<tr>";
         echo "<td>".$row['description']."</td>";
@@ -80,35 +104,6 @@ $add = $pdo->prepare("INSERT INTO tasks (description) VALUES (?)");
     }
 
 
-
-
-
-
-    if (isset($_GET["action"]) and $_GET["action"] == "delete") {
-        $dlt->execute([
-            (string)($_GET["id"])
-        ]);
-        header('Location: http://clvrdgtl.com/l/PHP/4_2/index.php');
-
-    }
-
-    if (isset($_GET["action"]) and $_GET["action"] == "done") {
-        $done->execute([
-            (string)($_GET["id"])
-        ]);
-        header('Location: http://clvrdgtl.com/l/PHP/4_2/index.php');
-
-    }
-
-    if (isset($_GET["new_task"]) and !empty($_GET["new_task"])) {
-        $add->execute([
-            (string)($_GET["new_task"])
-        ]);
-        header('Location: http://clvrdgtl.com/l/PHP/4_2/index.php');
-
-    }
-
-    ob_end_flush();
     ?>
 
 </table>
