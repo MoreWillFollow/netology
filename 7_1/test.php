@@ -11,7 +11,8 @@ $questions = json_decode($questions, true);
 
 if (empty($questions) || $questions === NULL) {
     header('Content-Type: text/html; charset=UTF-8;');
-    echo "Невозможно получить вопросы. Вы перейдете к списку тестов.";
+    http_response_code(404); echo '<h1>Cтраница не найдена!</h1>';
+    echo "Скорее всего таких тестов не существует на сервере.";
     echo "<h2>Нажмите <a href='list.php'>сюда</a>, чтобы перейти к списку тестов.</h2>";
     die;
 }
