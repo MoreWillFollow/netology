@@ -17,6 +17,7 @@ session_start();
     <link href="main.css" type="text/css" rel="stylesheet">
 </head>
 <body>
+<h3>Введите ваши данные. Вы либо войдете, либо вас насильно зарегситрирует и потом вы войдете :) </h3>
 <form method="POST" action="enter.php">
     <label>
         <input type="text" name="login" placeholder="Логин">
