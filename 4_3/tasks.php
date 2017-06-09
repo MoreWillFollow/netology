@@ -9,7 +9,15 @@ session_start();
 
 header('Content-Type: text/html; charset=UTF-8');
 error_reporting(E_ALL);
-$login = "anarnebiyev@gmail.com";
+
+/*echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+echo "<hr>";
+echo '<pre>' . print_r($_POST) . '</pre>';
+echo "<hr>";*/
+
+
+
+$login = $_SESSION["login"];
 
 
 $pdo = new PDO("mysql:host=localhost; dbname=clvrdgtl_neto42", "clvrdgtl_neto42", "netology2017", [
@@ -35,12 +43,12 @@ $assign_to = $pdo->prepare("UPDATE task SET assigned_user_id=? WHERE id=?");
 <body>
 
 
-<h1>Список дел</h1>
+<h1>Список ваших дел, <? echo $_SESSION["login"] ?></h1>
 
 <form action="http://clvrdgtl.com/l/PHP/4_3/tasks.php">
     <label class="task_adder">
         <?
-        if (isset($_GET["action"]) == "edit") {
+        if (isset($_GET["action"]) and $_GET["action"] == "edit") {
             $_SESSION["id"] = $_GET["id"];
             echo <<<HTML
    <input type="text" name="edit_task">
@@ -107,7 +115,7 @@ HTML;
 
     }
 
-    if (isset($_POST["assign"])) {
+    if (isset($_POST["assign"]) and $_POST["assigned_user_id"] !== "-") {
         $assign_to->execute([
             (string)($_POST["assigned_user_id"]),
             (int)($_GET["id"])
@@ -117,6 +125,9 @@ HTML;
 
 
     foreach ($pdo->query($sql) as $row) {
+
+
+
 
         if ($row['is_done'] == 0) {
             $status = "В процессе";
@@ -131,10 +142,14 @@ HTML;
             die();
         }
 
-        $responsible = $row['assigned_user_id'];
         if ($row['assigned_user_id'] == $login) {
             $responsible = "Вы";
         }
+        else {
+            $responsible = $row['assigned_user_id'];
+        }
+
+        if ($row['user_id'] !== $login) { continue;}
 
 
         echo "<tr>";
@@ -159,6 +174,7 @@ HTML;
     <label>
 <select name="assigned_user_id">
 <?
+echo "<option value=\"-\">-</option>";
 
         foreach ($pdo->query($assignble) as $assign_to) {
             echo "<option value=\"".$assign_to["login"]."\">".$assign_to["login"]."</option>";
@@ -193,6 +209,12 @@ HTML;
 <?
 foreach ($pdo->query($sql) as $row) {
 
+    if ($row["user_id"] == $login) { continue; };
+
+    if ($row["assigned_user_id"] == $login){
+        $responsible = "Вы";
+    } else {continue;};
+
     if ($row['is_done'] == 0) {
         $status = "В процессе";
         $status_class = "current";
@@ -206,9 +228,7 @@ foreach ($pdo->query($sql) as $row) {
         die();
     }
 
-    if ($row['assigned_user_id'] == $login) {
-        continue;
-    }
+
 
     echo "<tr>";
     echo "<td>".$row['description']."</td>";
@@ -228,6 +248,8 @@ foreach ($pdo->query($sql) as $row) {
 }
 ?>
 </table>
+
+<a href="exit.php">Выход</a>
 
 
 <?
