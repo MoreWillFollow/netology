@@ -5,7 +5,6 @@
  * Date: 26.04.17
  * Time: 1:27
  */
-session_start();
 
 header('Content-Type: text/html; charset=UTF-8');
 
