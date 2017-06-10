@@ -7,7 +7,10 @@
  */
 
 session_start();
+/*session_status();*/
+/*echo session_status();*/
 
+/*var_dump($_SESSION);*/
 ?>
 
 <html>

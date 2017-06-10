@@ -6,6 +6,9 @@
  * Time: 19:14
  */
 session_start();
+/*echo session_status();
+echo "<br>";
+echo session_id();*/
 
 header('Content-Type: text/html; charset=UTF-8');
 error_reporting(E_ALL);
