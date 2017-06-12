@@ -18,6 +18,14 @@ if (empty($questions) || $questions === NULL) {
 }
 header('Content-Type: text/html; charset=UTF-8;');
 
+
+foreach ($questions as $question) {
+
+    echo $question["correct"];
+    echo "<br>";
+}
+
+
 ?>
 
 
@@ -117,14 +125,12 @@ header('Content-Type: text/html; charset=UTF-8;');
 
             }
 
-
-            $question_count = count($questions);
             $k = 0;
-            while ($k<$question_count) {
+            while ($k < count($questions)) {
                 ++$k;
+
                 $result["answer".$k] = "Ответ пропущен";
             }
-
 
             foreach ($_POST as $test => $answer) {
                 $answers[$test] = $answer;
@@ -210,6 +216,11 @@ HTML;
                 echo "<td>" . $value . "</td>";
                 echo "</tr>";
             }
+
+echo "<pre>";
+var_dump($_POST);
+echo "</pre>";
+
 
             echo "</table>";
 
