@@ -19,11 +19,6 @@ if (empty($questions) || $questions === NULL) {
 header('Content-Type: text/html; charset=UTF-8;');
 
 
-foreach ($questions as $question) {
-
-    echo $question["correct"];
-    echo "<br>";
-}
 
 
 ?>
@@ -206,11 +201,6 @@ HTML;
                 echo "<td>" . $value . "</td>";
                 echo "</tr>";
             }
-
-echo "<pre>";
-var_dump($_POST);
-echo "</pre>";
-
 
             echo "</table>";
 
