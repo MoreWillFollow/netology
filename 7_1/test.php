@@ -102,16 +102,6 @@ foreach ($questions as $question) {
     else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($_POST['send'] !== NULL) {
-            $answer_dir = "tests/answers/".$_GET["test_number"].".json";
-            $data_answers = file_get_contents($answer_dir);
-            $data_answers = json_decode($data_answers, true);
-
-            if (empty($data_answers)) {
-                echo "Невозможно получить ответы";
-                die;
-            }
-
-
 
             $correct = [];
             $answers = [];

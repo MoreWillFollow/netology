@@ -23,5 +23,3 @@ while ($i < $k) {
     ++$i;
 }
 session_destroy();
-
-?>
