@@ -5,38 +5,61 @@
  * Date: 10.06.17
  * Time: 11:14
  */
-header('Content-Type: text/html; charset=UTF-8');
 error_reporting(E_ALL);
 
-$table_name = "Cool Table";
-$servername = "localhost";
-$username = "clvrdgtl_neto44";
-$password = "netology2017";
-$dbname = "clvrdgtl_neto44";
+if (isset($_POST) and !empty($_POST)) {
 
-try {
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $table_name = "Cool Table";
+    $servername = "localhost";
+    $username = "clvrdgtl_neto44";
+    $password = "netology2017";
+    $dbname = "clvrdgtl_neto44";
 
-    // sql to create table
-    $sql = ( "CREATE TABLE IF NOT EXISTS YES (
-    id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    firstname VARCHAR(30) NOT NULL,
-    lastname VARCHAR(30) NOT NULL,
-    email VARCHAR(50),
-    reg_date TIMESTAMP
-    )");
+    try {
+        $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        // set the PDO error mode to exception
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // use exec() because no results are returned
-    $pdo->exec($sql);
+        // sql to create table
+        $sql = ( "CREATE TABLE IF NOT EXISTS coool (
+        id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+        firstname VARCHAR(30) NOT NULL,
+        lastname VARCHAR(30) NOT NULL,
+        email VARCHAR(50),
+        reg_date TIMESTAMP
+        )");
 
-    echo "Таблица создана. Обновите еще раз, чтобы создать новую таблицу<br>";
-    echo "<a href='list.php'>Список таблиц</a>";
+        // use exec() because no results are returned
+        $pdo->exec($sql);
+        unset($_POST);
+
+        header('Location: list.php');
+    }
+    catch(PDOException $e)
+    {
+        echo $sql . "<br>" . $e->getMessage();
+    }
+
+    $pdo = null;
 }
-catch(PDOException $e)
-{
-    echo $sql . "<br>" . $e->getMessage();
-}
+?>
 
-$pdo = null;
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Домашнее задание 4.4</title>
+</head>
+<body>
+
+<form method="POST">
+    <label>
+        <input type="submit" name="OK" title="Нажмите, чтобы создать новую таблицу" value="Создать новую таблицу через PHP">
+    </label>
+</form>
+</body>
+</html>
+
+
+<?
+
+?>
