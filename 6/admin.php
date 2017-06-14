@@ -14,8 +14,11 @@ mb_http_input('UTF-8');
 mb_regex_encoding('UTF-8');
 
 if (count($_FILES)) {
-    $upload_path = 'tests/questions/';
-    if (!($_FILES['test']['type'] === "application/json")) {
+
+    $allowed =  array('json');
+    $filename = $_FILES['test']['name'];
+    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+    if(!in_array($ext,$allowed) ) {
         echo "Ошибка. Неверный формат файла. Загружайте файл в формате JSON";
         die;
     }
@@ -26,8 +29,9 @@ if (count($_FILES)) {
     $file_name = $count.".json";
 
     $tmp_file = $_FILES['test']['tmp_name'];
-    header( "refresh:5;url=list.php" );
     move_uploaded_file($tmp_file, $upload_path.$file_name);
+
+    header("Location: list.php");
 
 
     echo "<h2>Тест загружен. Вы будете перенаправлены к списку тестов.</h2>";
