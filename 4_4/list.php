@@ -25,6 +25,15 @@ try {
         $table_list[] = $table_name[0];
 
     }
+/*    echo "<pre>";
+    print_r($table_list);
+    echo "</pre>";
+    echo "<hr>";*/
+
+
+
+
+
 }
 catch(PDOException $e)
 {
@@ -41,24 +50,35 @@ $conn = null;
     <link rel="stylesheet" href="normalize.css" type="text/css">
 </head>
 <body>
-<table>
-    <tr>
-        <th>#</th>
-        <th>Название таблицы</th>
-    </tr>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Название таблицы</th>
+                    <th>Действия</th>
+                </tr>
 
     <?
     $i = 1;
     foreach ($table_list as $key=>$value) {
-        echo "<tr>";
-        echo "<td>".$i."</td>";
-        echo "<td>".$value."</td>";
-        echo "</tr>";
+        ?>
+                <tr>
+                    <td><?=$i?></td>
+                    <td><?=$value?></td>
+                    <td>
+                        <form action="table_view.php" method="POST">
+                        <label>
+                            <input name="table" type="hidden" value="<?=$value?>">
+                            <input type="submit" value="Просмотреть или редактировать">
+                        </label>
+
+                        </form>
+                    </td>
+                </tr>
+
+    <?php
         $i++;
     }
-
-    ?>
-
+?>
 </table>
 </body>
 </html>

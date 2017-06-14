@@ -8,12 +8,15 @@
 error_reporting(E_ALL);
 
 if (isset($_POST) and !empty($_POST)) {
-
     $table_name = "Cool Table";
     $servername = "localhost";
     $username = "clvrdgtl_neto44";
     $password = "netology2017";
     $dbname = "clvrdgtl_neto44";
+
+
+    $new_table_name = $_POST["new_table_name"];
+
 
     try {
         $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -21,13 +24,14 @@ if (isset($_POST) and !empty($_POST)) {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // sql to create table
-        $sql = ( "CREATE TABLE IF NOT EXISTS coool (
+        $sql = ( "CREATE TABLE IF NOT EXISTS `$new_table_name` (
         id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
         firstname VARCHAR(30) NOT NULL,
         lastname VARCHAR(30) NOT NULL,
         email VARCHAR(50),
         reg_date TIMESTAMP
         )");
+
 
         // use exec() because no results are returned
         $pdo->exec($sql);
@@ -53,6 +57,7 @@ if (isset($_POST) and !empty($_POST)) {
 
 <form method="POST">
     <label>
+        <input type="text" name="new_table_name">
         <input type="submit" name="OK" title="Нажмите, чтобы создать новую таблицу" value="Создать новую таблицу через PHP">
     </label>
 </form>
