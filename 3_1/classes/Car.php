@@ -8,15 +8,17 @@ class Car
     private $disks = "Стандартные диски";
 
     function orderedCar ($color, $motor, $roof, $disks) {
-        $this->color = $color;
         $this->motor = $motor;
         $this->roof = $roof;
-        $this->disks = $disks;
+        $this->tuningCarColor($color);
+        $this->tuningCarDisks($disks);
     }
 
     function tuningCar ($color, $disks) {
-        $this->color = $color;
-        $this->disks = $disks;
+
+        $this->tuningCarColor($color);
+
+        $this->tuningCarDisks($disks);
     }
 
     function tuningCarColor ($color) {

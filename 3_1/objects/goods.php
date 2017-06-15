@@ -1,12 +1,11 @@
 <?php
 
 
-$new_goods = new Goods();
-$new_goods_color = new Goods();
-$out_of_stock = new Goods();
-$used_goods = new Goods();
+$new_goods = new Goods("Крутая штуковика","SKU117","9421564653","Gifts","1","Мультицветовая гамма","1456","");
+$new_goods_color = new Goods("Крутая штуковика","SKU117","9421564653","Gifts","1","Мультицветовая гамма","1456","");
+$out_of_stock = new Goods("Крутая штуковика","SKU117","9421564653","Gifts","1","Мультицветовая гамма","1456","");
+$used_goods = new Goods("Крутая штуковика","SKU117","9421564653","Gifts","1","Мультицветовая гамма","1456","");
 
-$new_goods->addGoods("Крутая штуковика","SKU117","9421564653","Gifts","1","Мультицветовая гамма","1456","");
 $new_goods_color->setGoodsColor("SKU117","Зеленая");
 $out_of_stock->outOfStock("SKU117");
 $used_goods->usedGoods("SKU117");

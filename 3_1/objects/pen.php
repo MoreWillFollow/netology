@@ -5,7 +5,7 @@ $pen_red_color = new Pen();
 $pen_customized = new Pen();
 
 $pen_red_color->redPen();
-$pen_customized->customePen("Оранжевая","Новая","В космосе");
+$pen_customized->customPen("Оранжевая","Новая","В космосе");
 
 
 echo "<pre>Стандартная ручка для школьников: <br><b>";

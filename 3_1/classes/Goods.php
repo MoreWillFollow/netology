@@ -11,7 +11,7 @@ class Goods
     private $stock;
     private $usage;
 
-    function addGoods ($name, $article,$barcode,$category,$size,$color,$stock, $usage) {
+    function __construct ($name, $article,$barcode,$category,$size,$color,$stock, $usage) {
         $this->name = $name;
         $this->article = $article;
         $this->barcode = $barcode;

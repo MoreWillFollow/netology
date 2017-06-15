@@ -7,7 +7,7 @@ $TV_OFF = new Tv();
 $TV_ONN = new Tv();
 
 $TV_buy->chooseTV("56", "LCD", "YES", "NO", "NO");
-$TV_OFF->turnOnTv("OFF");
+$TV_OFF->turnOnTv("Off");
 $TV_ONN->turnOnTv("ON");
 
 

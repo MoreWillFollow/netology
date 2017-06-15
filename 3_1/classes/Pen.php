@@ -2,17 +2,24 @@
 
 class Pen
 {
-    private $color = "Синяя";
-    private $new_or_not = "Новая";
-    private $used_in = "Школе";
+    private $color;
+    private $new_or_not;
+    private $used_in;
 
     function redPen () {
         $this->color = "Красная";
     }
 
-    function customePen ($color, $new, $used_in) {
+    function __construct()
+    {
+        $this->color = "Синяя";
+        $this->new_or_not = "Новая";
+        $this->used_in = "Школе";
+    }
+
+    function customPen ($color, $new, $used_in) {
         $this->color = $color;
-        $this->new = $new;
+        $this->new_or_not = $new;
         $this->used_in = $used_in;
     }
 }
