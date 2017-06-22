@@ -1,0 +1,44 @@
+body * {
+    font-family: Verdana, "PT Sans Caption", SansSerif;
+}
+
+body {
+    padding:10px;
+    margin:0 auto;
+    width: 90%;
+    background-color: silver;
+}
+
+th {
+    background-color: lightgrey;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border:1px solid #D3D3B3;
+    padding: 10px;
+}
+
+section {
+    padding: 30px;
+    background-color: #D3D3B3;
+}
+
+section p {
+    margin: 0.3em 0;
+}
+
+
+.one {
+    background: #D0D0A0;
+    padding: 5px;
+}
+
+.two {
+    padding: 5px;
+
+}
