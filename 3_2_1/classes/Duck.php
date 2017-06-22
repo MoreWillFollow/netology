@@ -1,5 +1,5 @@
 <?php
-class Duck extends bird
+class Duck extends bird implements animal
 {
     private $sound = "Кря";
     private $fly = "Нет";
@@ -27,6 +27,10 @@ class Duck extends bird
         $this->walking = "Нет";
         $this->hundet = "Да";
         $this->cooked = "Да";
+    }
+    function sleeping()
+    {
+        echo "Duck can sleep";// TODO: Implement sleeping() method.
     }
 
 }

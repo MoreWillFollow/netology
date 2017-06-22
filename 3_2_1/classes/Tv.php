@@ -1,6 +1,6 @@
 <?php
 
-class Tv extends screens
+class Tv extends screens implements display
 {
     private $remote_control;
     private $used;

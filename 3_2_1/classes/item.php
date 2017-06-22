@@ -1,5 +1,9 @@
 <?php
 
+interface thing {
+    function breaking ();
+}
+
 class item
 {
     protected $name=1;

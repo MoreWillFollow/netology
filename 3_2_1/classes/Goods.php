@@ -1,6 +1,6 @@
 <?php
 
-class Goods extends item
+class Goods extends item implements thing
 {
     private $category;
     private $size;
@@ -34,6 +34,11 @@ class Goods extends item
     function usedGoods ($article) {
         $this->article = $article;
         $this->usage = "Б/У";
+    }
+
+    function breaking()
+    {
+        echo "This thing is not broken";// TODO: Implement breaking() method.
     }
 
 }

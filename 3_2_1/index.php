@@ -11,8 +11,6 @@ include "classes/Pen.php";
 include "classes/Duck.php";
 include "classes/Goods.php";
 include "classes/Tv.php";
-include "interface/animal.php";
-include "interface/transport.php";
 
 
 

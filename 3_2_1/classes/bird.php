@@ -6,6 +6,11 @@
  * Date: 22.06.17
  * Time: 0:45
  */
+
+interface animal {
+    function sleeping();
+}
+
 class bird
 {
     private $wings = 2;

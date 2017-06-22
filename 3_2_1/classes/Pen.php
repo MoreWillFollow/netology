@@ -1,6 +1,6 @@
 <?php
 
-class Pen extends writingTool
+class Pen extends writingTool implements thing
 {
     function __construct()
     {
@@ -23,5 +23,10 @@ class Pen extends writingTool
         $this->color = $color;
         $this->new_or_not = $new;
         $this->used_in = $used_in;
+    }
+
+    function breaking()
+    {
+        echo "This thing is not broken";// TODO: Implement breaking() method.
     }
 }

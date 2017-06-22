@@ -1,5 +1,6 @@
 <?php
 
+
 class writingTool
 {
     public $resource = 1000;

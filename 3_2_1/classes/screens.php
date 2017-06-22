@@ -1,5 +1,9 @@
 <?php
 
+interface display {
+    public function turnOnTv($on_or_not);
+}
+
 class screens
 {
     protected $screen_size;
