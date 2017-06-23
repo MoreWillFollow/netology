@@ -6,11 +6,6 @@ interface thing {
 
 class item
 {
-    function classDescription() {
-        echo "<pre>";
-        print_r($this);
-        echo "</pre>";
-    }
     protected $name=1;
     protected $article=3;
     protected $barcode=5;
