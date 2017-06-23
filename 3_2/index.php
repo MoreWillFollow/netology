@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ALL);
+include "classes/superclass.php";
 include "classes/automobile.php";
 include "classes/item.php";
 include "classes/bird.php";
@@ -57,6 +58,13 @@ $code2 = "<?php getMoney()
 
 <section>
     <h2>3. Суперклассы для классов с <a href="http://clvrdgtl.com/l/PHP/3_1/index.php" target="_blank">Домашнее задание 3.1</a></h2>
+
+    <hr>
+    <h3>Общий СУПЕРКЛАСС</h3>
+    <?
+    $new_obj = new Car();
+    $new_obj->classDescription();
+    ?>
 
     <hr>
     <div class="one">

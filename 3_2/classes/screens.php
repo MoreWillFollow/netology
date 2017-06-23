@@ -4,7 +4,7 @@ interface display {
     public function turnOnTv($on_or_not);
 }
 
-class screens
+class screens extends superclass
 {
     protected $screen_size;
     protected $screen_type;
