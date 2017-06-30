@@ -1,27 +1,25 @@
+<!DOCTYPE html>
+<?php
+$cookie_name = "user";
+$cookie_value = "John Doe";
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+?>
 <html>
-<head>
-    <meta charset="UTF-8">
-</head>
-</html>
-
+<body>
 
 <?php
-error_reporting(E_ALL);
+echo "<pre>";
+var_dump($_COOKIE);
 
-
-$resource = -60;
-$usable_or_not = 1; //Usable if 1, not Usable if 0
-function writeOnPaper () {
-    $resource = 1000;
-
-    $resource = $resource - 73;
-
-    if ($resource <= 0) {
-        $resource = 7;
-        $usable_or_not = 0;
-    }
-    return $usable_or_not;
+if(!isset($_COOKIE[$cookie_name])) {
+    echo "Cookie named '" . $cookie_name . "' is not set!";
+} else {
+    echo "Cookie '" . $cookie_name . "' is set!<br>";
+    echo "Value is: " . $_COOKIE[$cookie_name];
 }
+?>
 
+<p><strong>Note:</strong> You might have to reload the page to see the value of the cookie.</p>
 
-var_dump(writeOnPaper());
+</body>
+</html>

@@ -185,8 +185,7 @@ echo "<option value=\"-\">-</option>";
 
   ?>
 </select>
-<input type="submit" name="assign" value="Переложить ответственность">
-</label>
+z</label>
 </form>
 
 <?php
